@@ -4,7 +4,25 @@ export default function App() {
   return (
     <>
       <Header />
-      <main></main>
+      <main className="px-4 py-12">
+        <div className="container mx-auto flex justify-between gap-8">
+          <input
+            className="w-full max-w-96 p-4 shadow"
+            type="text"
+            name="country"
+            id="country"
+            placeholder="Search for a country..."
+          />
+          <select name="region" id="region" className="p-4 shadow">
+            <option value="">Filter by Region</option>
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+        </div>
+      </main>
     </>
   );
 }
