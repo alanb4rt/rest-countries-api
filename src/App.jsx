@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import ListCard from "./components/ListCard";
 
 export default function App() {
   return (
@@ -21,6 +22,9 @@ export default function App() {
             <option value="europe">Europe</option>
             <option value="oceania">Oceania</option>
           </select>
+        </div>
+        <div className="container mx-auto py-8 grid grid-cols-4 gap-8">
+          <ListCard />
         </div>
       </main>
     </>
