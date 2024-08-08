@@ -5,6 +5,7 @@
 @font-face {
   font-family: "Nunito Sans";
   src: url(./assets/fonts/Nunito_Sans/NunitoSans.ttf);
+  font-display: fallback;
 }
 
 :root {

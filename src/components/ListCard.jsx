@@ -1,13 +1,11 @@
-import { useState } from "react";
-import data from "../data/data.json";
 import Card from "./Card";
 
-export default function ListCard() {
-  const [countries, setCountries] = useState([...data]);
+export default function ListCard(props) {
+  const { data } = props;
 
   return (
     <>
-      {countries.map((country, index) => (
+      {data.map((country, index) => (
         <Card
           key={index}
           flags={country.flags}
