@@ -5,7 +5,7 @@ export default function Card(props) {
     <>
       <div className="card">
         <img
-          className="w-full aspect-video as object-cover"
+          className="w-full aspect-video object-cover"
           src={flags.svg}
           alt={`Flag of ${name}`}
         />

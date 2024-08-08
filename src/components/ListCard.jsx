@@ -5,9 +5,9 @@ export default function ListCard(props) {
 
   return (
     <>
-      {data.map((country, index) => (
+      {data.map((country) => (
         <Card
-          key={index}
+          key={country.alpha3Code}
           flags={country.flags}
           name={country.name}
           population={country.population}
