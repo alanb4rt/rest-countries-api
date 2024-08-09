@@ -1,12 +1,12 @@
 export default function Card(props) {
-  const { flags, name, population, region, capital } = props;
+  const { flag, name, population, region, capital } = props;
 
   return (
     <>
       <div className="card">
         <img
           className="w-full aspect-video object-cover"
-          src={flags.svg}
+          src={flag}
           alt={`Flag of ${name}`}
         />
         <div className="card-content">
