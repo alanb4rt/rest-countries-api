@@ -13,9 +13,25 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --color-bg: #f1f1f1;
+  --color-section: #fff;
+  --color-text: #000;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #202d36;
+    --color-section: #2b3743;
+    --color-text: #fff;
+  }
+}
+
+[data-theme="dark"] {
+  --color-bg: #202d36;
+  --color-section: #2b3743;
+  --color-text: #fff;
 }
 
 body {
@@ -23,7 +39,6 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f1f1f1;
 }
 
 button {
@@ -33,7 +48,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-section);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -42,23 +57,25 @@ button:hover {
   border-color: #646cff;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.App {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-bg);
+
+  transition-property: background-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+header,
+.card,
+input,
+select {
+  background: var(--color-section);
 }
 
 .card {
-  @apply w-full rounded shadow-sm bg-white overflow-hidden;
+  @apply w-full rounded shadow-sm overflow-hidden;
 }
 
 .card-content {
