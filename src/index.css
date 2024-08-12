@@ -75,7 +75,7 @@ select {
 }
 
 .card {
-  @apply w-full rounded shadow-sm overflow-hidden;
+  @apply w-full h-full rounded shadow-sm overflow-hidden;
 }
 
 .card-content {
@@ -83,6 +83,24 @@ select {
 
   li {
     @apply font-bold;
+  }
+
+  span {
+    @apply font-normal;
+  }
+}
+
+.btn {
+  @apply w-fit border px-8 py-2 shadow;
+}
+
+#details-page {
+  @apply min-h-screen text-base;
+}
+
+.country-details {
+  .list {
+    @apply font-bold leading-loose;
   }
 
   span {
