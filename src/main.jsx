@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import ThemeProvider from "./components/ThemeProvider.jsx";
 import App from "./App.jsx";
-import ErrorPage from "./pages/error-page.jsx";
+import Header from "./components/Header.jsx";
 import CountryPage from "./pages/country-page.jsx";
+import ErrorPage from "./pages/error-page.jsx";
 
 const router = createBrowserRouter(
   [
@@ -12,7 +14,10 @@ const router = createBrowserRouter(
       path: "/",
       element: (
         <>
-          <App />
+          <ThemeProvider>
+            <Header />
+            <App />
+          </ThemeProvider>
         </>
       ),
       errorElement: <ErrorPage />,
@@ -21,7 +26,10 @@ const router = createBrowserRouter(
       path: "/:countryName",
       element: (
         <>
-          <CountryPage />
+          <ThemeProvider>
+            <Header />
+            <CountryPage />
+          </ThemeProvider>
         </>
       ),
       errorElement: <ErrorPage />,

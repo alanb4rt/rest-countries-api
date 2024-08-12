@@ -1,5 +1,11 @@
-export default function Header(props) {
-  const { handleDarkMode } = props;
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeProvider";
+
+export default function Header() {
+  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+  const handleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     <>
       <header className="w-full p-4 shadow">
