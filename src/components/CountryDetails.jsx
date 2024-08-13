@@ -39,7 +39,7 @@ export default function CountryDetails(props) {
               <ul className="w-full flex gap-2 flex-wrap">
                 {data.borders.map((border, index) => (
                   <li
-                    className="w-[16ch] text-center p-1 bg-[--color-section] shadow"
+                    className="w-[16ch] text-center p-1 bg-[--color-elements] shadow"
                     key={index}
                   >
                     {border}
