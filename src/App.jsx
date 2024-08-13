@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import ListCard from "./components/ListCard";
 import dataJSON from "./data/data.json";
 import { filterData } from "./utils/filterData";
+import IconSearch from "./components/icons/IconSearch";
 
 export default function App() {
   const initialFilter = { query: "", region: "" };
@@ -23,15 +24,23 @@ export default function App() {
       <main className="px-4 py-12">
         <div className="container mx-auto">
           <form className="flex justify-between gap-8">
-            <input
-              className="w-full max-w-96 p-4 shadow"
-              type="text"
-              name="country"
-              id="country"
-              placeholder="Search for a country..."
-              value={filterParams.query}
-              onChange={(e) => handleParams("query", e.target.value)}
-            />
+            <div className="relative w-full max-w-screen-sm">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <span className="absolute inset-y-0 left-6 flex items-center">
+                <IconSearch />
+              </span>
+              <input
+                id="search"
+                className="w-full p-4 pl-16 shadow"
+                type="text"
+                name="search"
+                placeholder="Search for a country..."
+                value={filterParams.query}
+                onChange={(e) => handleParams("query", e.target.value)}
+              />
+            </div>
             <select
               className="p-4 shadow"
               name="region"
@@ -48,7 +57,7 @@ export default function App() {
             </select>
           </form>
         </div>
-        <div className="container mx-auto py-8 grid grid-cols-4 gap-8">
+        <div className="container mx-auto py-12 grid grid-cols-4 gap-16">
           <ListCard data={filteredData} />
         </div>
       </main>

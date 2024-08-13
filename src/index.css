@@ -11,7 +11,7 @@
 :root {
   font-family: "Nunito Sans", sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
 
   --color-bg: #f1f1f1;
   --color-section: #fff;
@@ -91,7 +91,7 @@ select {
 }
 
 .btn {
-  @apply w-fit border px-8 py-2 shadow;
+  @apply flex items-center gap-2 leading-none w-fit px-8 py-2 bg-[--color-section] shadow;
 }
 
 #details-page {
