@@ -23,7 +23,7 @@ export default function App() {
     <>
       <main className="px-4 py-12">
         <div className="container mx-auto">
-          <form className="flex justify-between gap-8">
+          <form className="flex flex-col justify-between gap-8 sm:flex-row">
             <div className="relative w-full max-w-screen-sm">
               <label htmlFor="search" className="sr-only">
                 Search
@@ -33,7 +33,7 @@ export default function App() {
               </span>
               <input
                 id="search"
-                className="w-full p-4 pl-16 shadow"
+                className="w-full p-4 pl-16 rounded shadow"
                 type="text"
                 name="search"
                 placeholder="Search for a country..."
@@ -42,7 +42,7 @@ export default function App() {
               />
             </div>
             <select
-              className="p-4 shadow"
+              className="w-fit p-4 pr-8 rounded shadow"
               name="region"
               id="region"
               value={filterParams.region}
@@ -57,7 +57,7 @@ export default function App() {
             </select>
           </form>
         </div>
-        <div className="container mx-auto py-12 grid grid-cols-4 gap-16">
+        <div className="container mx-auto py-12 grid gap-16 grid-cols-1 px-4 sm:px-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <ListCard data={filteredData} />
         </div>
       </main>

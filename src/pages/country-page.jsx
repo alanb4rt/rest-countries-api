@@ -14,8 +14,8 @@ export default function CountryPage() {
   const [data, setData] = useState(countryData);
 
   return (
-    <div id="details-page" className="container mx-auto py-8">
-      <div className="flex flex-col gap-8">
+    <div id="details-page" className="p-8 md:px-4">
+      <div className="container mx-auto flex flex-col gap-8">
         <Link to="/" className="btn">
           <IconArrow />
           Back

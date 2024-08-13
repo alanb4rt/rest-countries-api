@@ -24,17 +24,24 @@ export default function CountryDetails(props) {
 
   return (
     <section className="country-details">
-      <div className="grid grid-cols-2 gap-8">
-        <img className="pr-16" src={data.flag} alt={`Flag of ${data.name}`} />
-        <div className="flex flex-col gap-4 justify-between py-16">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-16">
+        <img
+          className="md:pr-16"
+          src={data.flag}
+          alt={`Flag of ${data.name}`}
+        />
+        <div className="flex flex-col gap-4 justify-between py-8 md:py-16">
           <h1 className="text-4xl font-extrabold">{data.name}</h1>
           <ListDetails lists={lists} />
           {data.borders && (
-            <div className="flex items-center gap-4 flex-wrap">
-              <p className="font-bold">Border Countries: </p>
-              <ul className="flex gap-1 flex-wrap">
+            <div className="flex items-start gap-4">
+              <p className="w-full max-w-fit font-bold">Border Countries: </p>
+              <ul className="w-full flex gap-2 flex-wrap">
                 {data.borders.map((border, index) => (
-                  <li className="border px-8 py-1" key={index}>
+                  <li
+                    className="w-[16ch] text-center p-1 bg-[--color-section] shadow"
+                    key={index}
+                  >
                     {border}
                   </li>
                 ))}
