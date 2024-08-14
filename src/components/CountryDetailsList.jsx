@@ -1,4 +1,4 @@
-export default function ListDetails(props) {
+export default function CountryDetailsList(props) {
   const { lists } = props;
 
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function BorderCountryItem(props) {
+export default function BorderCountry(props) {
   const { numericCode, name } = props;
 
   return (

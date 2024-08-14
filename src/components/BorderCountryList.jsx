@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import DataJSON from "../data/data.json";
-import BorderCountryItem from "./BorderCountryItem";
+import BorderCountry from "./BorderCountry";
 
-export default function BordersCountries(props) {
+export default function BorderCountryList(props) {
   const { data } = props;
 
   const [bordersCountries, setBordersCountries] = useState([]);
@@ -25,7 +25,7 @@ export default function BordersCountries(props) {
         <p className="w-full max-w-fit font-bold py-1">Border Countries: </p>
         <ul className="w-full flex gap-2 flex-wrap">
           {bordersCountries.map((border) => (
-            <BorderCountryItem
+            <BorderCountry
               key={border.numericCode}
               numericCode={border.numericCode}
               name={border.name}

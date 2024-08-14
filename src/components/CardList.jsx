@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export default function ListCard(props) {
+export default function CardList(props) {
   const { data } = props;
 
   return (

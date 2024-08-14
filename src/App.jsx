@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import ListCard from "./components/ListCard";
 import dataJSON from "./data/data.json";
 import { filterData } from "./utils/filterData";
 import IconSearch from "./components/icons/IconSearch";
+import CardList from "./components/CardList";
 
 export default function App() {
   const initialFilter = { query: "", region: "" };
@@ -65,7 +65,7 @@ export default function App() {
           </form>
         </div>
         <div className="container mx-auto py-12 grid gap-16 grid-cols-1 px-4 sm:px-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <ListCard data={filteredData} />
+          <CardList data={filteredData} />
         </div>
       </main>
     </>
