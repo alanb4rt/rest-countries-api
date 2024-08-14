@@ -19,7 +19,7 @@ export default function CountryPage() {
 
   return (
     <>
-      <div id="details-page" className="p-8 md:px-4">
+      <main id="details-page" className="p-8 md:px-4">
         <div className="container mx-auto flex flex-col gap-8">
           <Link to="/" className="btn">
             <IconArrow />
@@ -27,7 +27,7 @@ export default function CountryPage() {
           </Link>
           {data && <CountryDetails data={data} />}
         </div>
-      </div>
+      </main>
     </>
   );
 }

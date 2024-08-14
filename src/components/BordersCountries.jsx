@@ -21,7 +21,7 @@ export default function BordersCountries(props) {
 
   return (
     <>
-      <div className="flex items-start gap-4">
+      <div className="flex flex-col items-start gap-4 sm:flex-row">
         <p className="w-full max-w-fit font-bold">Border Countries: </p>
         <ul className="w-full flex gap-2 flex-wrap">
           {bordersCountries.map((border) => (
