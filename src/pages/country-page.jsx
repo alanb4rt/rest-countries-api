@@ -5,17 +5,17 @@ import CountryDetails from "../components/CountryDetails";
 import IconArrow from "../components/icons/iconArrow";
 
 export default function CountryPage() {
-  const { countryName } = useParams();
+  const { numericCodeOfCountry } = useParams();
   const location = useLocation();
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const countryData = dataJSON.filter(
-      (country) => country.name === countryName
+      (country) => country.numericCode === numericCodeOfCountry
     );
     setData(countryData[0]);
-  }, [countryName, location]);
+  }, [numericCodeOfCountry, location]);
 
   return (
     <>

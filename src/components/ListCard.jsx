@@ -7,9 +7,10 @@ export default function ListCard(props) {
     <>
       {data.map((country) => (
         <Card
-          key={country.alpha3Code}
+          key={country.numericCode}
           flag={country.flag}
           name={country.name}
+          numericCode={country.numericCode}
           population={country.population}
           region={country.region}
           capital={country.capital}

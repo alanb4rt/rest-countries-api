@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 export default function Card(props) {
-  const { flag, name, population, region, capital } = props;
+  const { flag, name, numericCode, population, region, capital } = props;
 
   return (
     <>
-      <Link to={`/${name}`}>
+      <Link to={`/${numericCode}`}>
         <div className="card">
           <img
             className="w-full aspect-video object-cover"
