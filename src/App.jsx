@@ -24,7 +24,7 @@ export default function App() {
       <main className="px-4 py-12">
         <div className="container mx-auto">
           <form className="flex flex-col justify-between gap-8 sm:flex-row">
-            <div className="flex flex-col w-full max-w-screen-sm">
+            <div className="flex flex-col w-full max-w-lg">
               <label htmlFor="search" className="sr-only">
                 Search
               </label>
