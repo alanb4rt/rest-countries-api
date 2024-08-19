@@ -1,9 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext(null);
 
 export default function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(prefersDarkScheme.matches);
+  }, []);
 
   return (
     <>

@@ -20,14 +20,6 @@
   color-scheme: light dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: hsl(207, 26%, 17%);
-    --color-elements: hsl(209, 23%, 22%);
-    --color-text: hsl(0, 0%, 100%);
-  }
-}
-
 [data-theme="dark"] {
   --color-bg: hsl(207, 26%, 17%);
   --color-elements: hsl(209, 23%, 22%);
