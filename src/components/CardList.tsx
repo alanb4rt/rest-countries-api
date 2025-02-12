@@ -1,8 +1,11 @@
 import Card from "./Card";
+import { Country } from "../types/country";
 
-export default function CardList(props) {
-  const { data } = props;
-
+interface CardListProps {
+  data: Country[];
+}
+  
+export default function CardList ({ data }: CardListProps) {
   return (
     <>
       {data.map((country) => (
@@ -13,7 +16,7 @@ export default function CardList(props) {
           numericCode={country.numericCode}
           population={country.population}
           region={country.region}
-          capital={country.capital}
+          capital={country?.capital}
         />
       ))}
     </>

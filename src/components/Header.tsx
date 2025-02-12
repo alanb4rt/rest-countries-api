@@ -1,12 +1,18 @@
 import { useContext } from "react";
-import { ThemeContext } from "./ThemeProvider";
+import { ThemeContext } from "../contexts/ThemeContext";
 import IconMoon from "./icons/IconMoon";
 
 export default function Header() {
-  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
-  const handleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error("ThemeContext must be used within a ThemeProvider");
+  }
+
+  const { isDarkMode, setIsDarkMode } = themeContext
+    
+  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  
   return (
     <>
       <header className="w-full p-5 shadow">
@@ -14,7 +20,7 @@ export default function Header() {
           <h1 className="text-lg font-bold sm:text-2xl">Where in the world?</h1>
           <button
             className="flex items-center gap-2 font-semibold color-white"
-            onClick={handleDarkMode}
+            onClick={toggleDarkMode}
           >
             <IconMoon />
             Dark Mode

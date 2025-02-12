@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 
-export default function Card(props) {
+interface CardProps {
+  flag: string;
+  name: string;
+  numericCode: string;
+  population: number;
+  region: string;
+  capital?: string;
+}
+
+export default function Card (props: CardProps) {
   const { flag, name, numericCode, population, region, capital } = props;
 
   return (
@@ -11,9 +20,10 @@ export default function Card(props) {
             className="w-full aspect-video object-cover"
             src={flag}
             alt={`Flag of ${name}`}
+            loading="lazy"
           />
           <div className="card-content">
-            <p className="text-lg font-bold mb-2">{name}</p>
+            <h2 className="text-lg font-bold mb-2">{name}</h2>
             <ul>
               <li>
                 Population: <span>{population}</span>
