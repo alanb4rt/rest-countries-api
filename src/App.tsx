@@ -17,7 +17,7 @@ export default function App() {
 
   const countriesData = dataJSON as Country[];
 
-  const filteredData = useMemo(() => filterData(countriesData, filterParams), [countriesData, filterParams]) as Country[];
+  const filteredData = useMemo(() => filterData(countriesData, filterParams), [countriesData, filterParams]);
 
   return (
     <>

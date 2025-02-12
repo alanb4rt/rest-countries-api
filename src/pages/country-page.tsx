@@ -12,12 +12,25 @@ export default function CountryPage() {
   const location = useLocation();
 
   const [data, setData] = useState<Country | null>(null);
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const countryData = dataJSON.find(
+    setLoading(true);
+    setError(null);
+
+    const countriesData = dataJSON as Country[];
+    const countryData = countriesData.find(
       (country) => country.numericCode === numericCodeOfCountry
     );
-    setData(countryData || null);
+
+    if (countryData) {
+      setData(countryData);
+    } else {
+      setError("Country not found");
+    }
+
+    setLoading(false);
   }, [numericCodeOfCountry, location]);
   
   const firstList = [
@@ -35,6 +48,15 @@ export default function CountryPage() {
   ];
 
   const lists = [firstList, secondList];
+
+  if (loading) return <div className="flex-1 content-center text-center">Loading...</div>;
+
+  if (error) return (
+    <div className="flex-1 content-center text-center">
+      <h2>Error: {error}</h2>
+      <Link to="/">Return to Homepage</Link>
+    </div>
+  )
 
   return (
     <>
