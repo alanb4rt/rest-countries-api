@@ -1,8 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-export const ThemeContext = createContext(null);
+interface Props {
+  children?: React.ReactNode;
+}
 
-export default function ThemeProvider({ children }) {
+export default function ThemeProvider({ children }: Props) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -12,11 +15,11 @@ export default function ThemeProvider({ children }) {
 
   return (
     <>
-      <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+      <ThemeContext value={{ isDarkMode, setIsDarkMode }}>
         <div className="App" data-theme={isDarkMode ? "dark" : "light"}>
           {children}
         </div>
-      </ThemeContext.Provider>
+      </ThemeContext>
     </>
   );
 }

@@ -4,36 +4,34 @@ import dataJSON from "../data/data.json";
 import IconArrow from "../components/icons/iconArrow";
 import CountryDetailsList from "../components/CountryDetailsList";
 import BorderCountryList from "../components/BorderCountryList";
+import { getNames } from "../utils/getNames";
+import { Country } from "../types/country";
 
 export default function CountryPage() {
-  const { numericCodeOfCountry } = useParams();
+  const { numericCodeOfCountry } = useParams<{ numericCodeOfCountry: string }>();
   const location = useLocation();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Country | null>(null);
 
   useEffect(() => {
-    const countryData = dataJSON.filter(
+    const countryData = dataJSON.find(
       (country) => country.numericCode === numericCodeOfCountry
     );
-    setData(countryData[0]);
+    setData(countryData || null);
   }, [numericCodeOfCountry, location]);
-
-  const getNames = (value) => {
-    if (!value) return "";
-    return value.map((item) => item.name).join(", ");
-  };
-
+  
   const firstList = [
-    { label: "Native Name", value: data.nativeName },
-    { label: "Population", value: data.population },
-    { label: "Region", value: data.region },
-    { label: "Sub Region", value: data.subregion },
-    { label: "Capital", value: data.capital },
+    { label: "Native Name", value: data?.nativeName || "" },
+    { label: "Population", value: data?.population || 0 },
+    { label: "Region", value: data?.region || "" },
+    { label: "Sub Region", value: data?.subregion || "" },
+    { label: "Capital", value: data?.capital || "" },
   ];
+
   const secondList = [
-    { label: "Top Level Domain", value: data.topLevelDomain },
-    { label: "Currencies", value: getNames(data.currencies) },
-    { label: "Languages", value: getNames(data.languages) },
+    { label: "Top Level Domain", value: data?.topLevelDomain?.join(", ") || "" },
+    { label: "Currencies", value: getNames(data?.currencies) },
+    { label: "Languages", value: getNames(data?.languages) },
   ];
 
   const lists = [firstList, secondList];
@@ -50,13 +48,13 @@ export default function CountryPage() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-16">
               <img
                 className="md:pr-16"
-                src={data.flag}
-                alt={`Flag of ${data.name}`}
+                src={data?.flag}
+                alt={`Flag of ${data?.name}`}
               />
               <div className="flex flex-col gap-4 justify-between py-8 md:py-16">
-                <h1 className="text-4xl font-extrabold">{data.name}</h1>
+                <h1 className="text-4xl font-extrabold">{data?.name}</h1>
                 <CountryDetailsList lists={lists} />
-                {data.borders && <BorderCountryList data={data.borders} />}
+                {data?.borders && <BorderCountryList borders={data.borders} />}
               </div>
             </div>
           </section>

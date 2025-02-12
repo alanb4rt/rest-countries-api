@@ -1,23 +1,23 @@
 import { useMemo, useState } from "react";
 import dataJSON from "./data/data.json";
-import { filterData } from "./utils/filterData";
 import IconSearch from "./components/icons/IconSearch";
 import CardList from "./components/CardList";
+import { filterData } from "./utils/filterData";
+import { FilterParams } from "./types/filterParams";
+import { Country } from "./types/country";
+
+const initialFilter: FilterParams = { query: "", region: "" };
 
 export default function App() {
-  const initialFilter = { query: "", region: "" };
-  const [filterParams, setFilterParams] = useState({ ...initialFilter });
+  const [filterParams, setFilterParams] = useState<FilterParams>({ ...initialFilter });
 
-  const handleParams = (key, value) => {
+  const handleParams = (key: string, value: string) => {
     setFilterParams((prev) => ({ ...prev, [key]: value.toLowerCase() }));
   };
 
-  const countriesData = useMemo(() => [...dataJSON], []);
+  const countriesData = dataJSON as Country[];
 
-  const filteredData = useMemo(
-    () => filterData(countriesData, filterParams),
-    [countriesData, filterParams]
-  );
+  const filteredData = useMemo(() => filterData(countriesData, filterParams), [countriesData, filterParams]) as Country[];
 
   return (
     <>
@@ -40,6 +40,7 @@ export default function App() {
                   placeholder="Search for a country..."
                   value={filterParams.query}
                   onChange={(e) => handleParams("query", e.target.value)}
+                  autoComplete="off"
                 />
               </div>
             </div>
@@ -48,11 +49,12 @@ export default function App() {
                 Region
               </label>
               <select
+                id="region"
                 className="w-fit p-4 pr-8 rounded shadow"
                 name="region"
-                id="region"
                 value={filterParams.region}
                 onChange={(e) => handleParams("region", e.target.value)}
+                autoComplete="off"
               >
                 <option value="">Filter by Region</option>
                 <option value="africa">Africa</option>
