@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ThemeProvider from "./components/ThemeProvider";
@@ -43,13 +43,8 @@ const router = createBrowserRouter(
   }
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <RouterProvider router={router} future={{ v7_startTransition: true }} />
-    </React.StrictMode>
-  );
-} else {
-  console.error("Failed to find the root element");
-}
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <RouterProvider router={router} future={{ v7_startTransition: true }} />
+  </StrictMode>
+);
